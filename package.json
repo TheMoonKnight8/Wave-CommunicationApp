@@ -1,6 +1,6 @@
 {
   "name": "chatapp",
-  "productName": "Chatapp",
+  "productName": "Wave",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -18,7 +18,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "electronmon": "^2.0.2"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",
