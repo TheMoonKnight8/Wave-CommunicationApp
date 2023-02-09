@@ -2,14 +2,104 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Wave</title>
     <link rel="stylesheet" href="index.css" />
+    <script defer src="windowcontrol.js"></script>
   </head>
-  <body>
+  <body class="lightTheme">
+    <div class="titlebar">
+      <div class="apptitle">
+        <img class="appicon" src="../Assets/Icons/WaveIcon.png" alt="WaveIcon">
+        <span class="title">Wave</span>
+      </div>
+      <div class="windowcontrolls">
+        <button id="minimizeBtn" class="titlebarbtn btn-minimize" title="Minimize" type="button">
+          <svg viewBox="0 0 395 200">
+            <style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:25px;}</style>
+            <line class="cls-1" x1="12.5" y1="12.5" x2="382.5" y2="12.5"/>
+          </svg>
+        </button>
+        <button id="maximizeBtn" class="titlebarbtn btn-maximize" title="Maximize" type="button">
+          <svg viewBox="0 0 322.18 296.53">
+            <style>
+              .cls-1,.cls-2{fill:none;}
+              .cls-1,.cls-2,.cls-3,.cls-4{stroke:#000;stroke-linecap:round;stroke-linejoin:round;}
+              .cls-1,.cls-3{stroke-width:20px;}
+              .cls-2,.cls-4{stroke-width:15px;}
+              .cls-3,.cls-4{fill:#fff;}
+            </style>
+              <g id="svgmaximize" class="">
+                <rect class="cls-1" x="67.18" y="10" width="245" height="220"/>
+                <line class="cls-2" x1="94.79" y1="37.65" x2="284.79" y2="37.65"/>
+                <rect class="cls-3" x="10" y="66.53" width="245" height="220"/>
+                <line class="cls-4" x1="37.62" y1="94.18" x2="227.62" y2="94.18"/>
+              </g>
+              <g id="svgrestore" class="hidden">
+                <rect class="cls-1" x="10" y="10" width="305.92" height="274.71"/>
+                <line class="cls-2" x1="44.49" y1="44.52" x2="281.73" y2="44.52"/>
+              </g>
+          </svg>
+        </button>
+        <button id="closeBtn" class="titlebarbtn btn-close" title="Close" type="button">
+            <svg viewBox="0 0 320.57 320.57">
+              <style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:25px;}</style>
+              <line class="cls-1" x1="12.5" y1="308.07" x2="308.07" y2="12.5"/>
+              <line class="cls-1" x1="12.5" y1="12.5" x2="308.07" y2="308.07"/>
+            </svg>
+        </button>
+      </div>
+    </div> 
     <div class="container">
-      <div class=""></div>
+      <div class="sidebar">
+        <div class="chatList">
+          <div class="userfind sidebaritems">
+          <span>
+            <svg viewBox="0 0 445 445">
+              <style>
+                  .st0{fill:none;stroke:#000000;stroke-width:25;stroke-linecap:round;stroke-miterlimit:10;}
+              </style>
+              <line class="st0" x1="222.5" y1="13.5" x2="222.5" y2="431.5"/>
+              <line class="st0" x1="13.5" y1="222.5" x2="431.5" y2="222.5"/>
+            </svg>
+          </span>
+          </div>
+        </div>
+        <div class="sidebarBottom">
+          <div class="setting sidebaritems navbarbtn">
+            <svg viewBox="0 0 363.09 363.09">
+              <rect x="184.35" y="310.96" width="76.29" height="93.09" rx="22.29" transform="translate(404.04 674.04) rotate(180)"/>
+              <rect x="88.89" y="271.41" width="76.29" height="93.09" rx="22.29" transform="translate(-48.91 591.66) rotate(-135)"/>
+              <rect x="49.35" y="175.96" width="76.29" height="93.09" rx="22.29" transform="translate(-175.96 269.04) rotate(-90)"/>
+              <rect x="88.89" y="80.5" width="76.29" height="93.09" rx="22.29" transform="translate(-93.58 86.08) rotate(-45)"/>
+              <rect x="143.4" width="76.29" height="93.09" rx="22.29"/>
+              <rect x="279.81" y="80.5" width="76.29" height="93.09" rx="22.29" transform="translate(142 -228.58) rotate(45)"/>
+              <rect x="319.35" y="175.96" width="76.29" height="93.09" rx="22.29" transform="translate(539.04 -175.96) rotate(90)"/>
+              <rect x="279.81" y="271.42" width="76.29" height="93.09" rx="22.29" transform="translate(726.66 277) rotate(135)"/>
+              <path d="M222.5,89.21A133.29,133.29,0,1,0,355.79,222.5,133.28,133.28,0,0,0,222.5,89.21Zm0,208.35a75.06,75.06,0,1,1,75.06-75.06A75.07,75.07,0,0,1,222.5,297.56Z" transform="translate(-40.96 -40.96)"/>
+            </svg>
+          </div>
+          <div class="userProfile sidebaritems navbarbtn">
+            <svg viewBox="0 0 315.96 360.82">
+              <path d="M380.46,393.28A158.37,158.37,0,0,0,268.91,251.57a109.9,
+              109.9,0,1,0-92.82,0A158.37,158.37,0,0,0,64.54,393.28a9.07,9.07,
+              0,0,0,9,9.63h0a9.08,9.08,0,0,0,9-8.45,140.13,140.13,0,0,1,279.76,
+              0,9.06,9.06,0,0,0,18.08-1.18ZM130.69,152a91.79,91.79,0,1,1,91.79,
+              91.79A91.8,91.8,0,0,1,130.69,152Z" transform="translate(-64.52 -42.09)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="chatwindow">
+        <div class="conversationHeader">
+          <div class="profilehandle">
+            <div class="profilepicture"></div>
+            <div class="profilename"></div>
+          </div>
+          <div class="conversationControls"></div>
+        </div>
+        <div class="conversationBody"></div>
+        <div class="composeBox"></div>
+      </div>
     </div>
   </body>
 </html>
