@@ -1,78 +1,33 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
-const ipc = ipcMain;
+const { ipcRenderer} = require('electron')
+const maximizeBtn = document.getElementById('maximizeBtn');
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) {
-  app.quit();
-}
-
-const createWindow = () => {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 840,
-    height: 800,
-    resizable:false,
-    frame:false,
-    webPreferences: {
-      nodeIntegration:true,
-      contextIsolation:false,
-      preload: path.join(__dirname, 'preload.js'),
-    },
-  });
-
-  // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+const ipc = ipcRenderer
 
 
-  // Close the Window
-  ipc.on('closeApp',()=>{mainWindow.close();});
-
-  // Minimize the Window
-  ipc.on('minimizeApp',()=>{mainWindow.minimize();});
-
-  // Maximize the Window
-  ipc.on('maximizeApp',()=>{
-    
-    if(mainWindow.isMaximized())
+function changeMaxmizebtn(isMaximizedApp)
+{
+    if(isMaximizedApp)
     {
-      mainWindow.restore();
+        maximizeBtn.title = 'Restore'
+        maximizeBtn.children[0].children[1].classList.add("hidden");
+        maximizeBtn.children[0].children[2].classList.remove("hidden");
     }
     else
     {
-      mainWindow.maximize();
+        maximizeBtn.title = 'Maximize'
+        maximizeBtn.children[0].children[1].classList.remove("hidden");
+        maximizeBtn.children[0].children[2].classList.add("hidden");
     }
-  });
+}
 
-  //
-  mainWindow.on('maximize', ()=>{mainWindow.webContents.send('isMaximized')});
+ipc.on('isMaximized', ()=>{ changeMaxmizebtn(true)})
 
-  //
-  mainWindow.on('unmaximize', ()=>{mainWindow.webContents.send('isRestored')});
+ipc.on('isRestored', ()=>{ changeMaxmizebtn(false)})
 
-};
+closeBtn.addEventListener('click', ()=>{ipc.send('closeApp')})
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+minimizeBtn.addEventListener('click', ()=>{ipc.send('minimizeApp')})
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
+maximizeBtn.addEventListener('click', ()=>{ipc.send('maximizeApp')})
 
-app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+updateBtn.addEventListener('click', ()=>{ipc.send('updateApp')})

@@ -3,16 +3,19 @@
 :root
 {
   --userfindtransition: 164ms;
-  --composeBoxHeight:5rem;
+  --composeBoxHeight: 5rem;
   --titlebarHeight: 1.36rem;
 }
 .lightTheme
 {
+  --titlebarColor: #FFFFFF;
   --userfindColor: #EEEEE4;
   --userfindActive: #FEFBEA;
   --userfindHover: #FAEBD7;
   --titlebarbtnHover: #d3d3d3;
   --titlebarbtnActive:#808080;
+  --conversationbodyColor: #ebe9e5;
+  --sidebarColor: #f9f7f3;
 }
 .darktheme
 {
@@ -21,6 +24,10 @@
   --userfindHover: #FAEBD7;
 }
 
+*:focus 
+{
+  outline: none;
+}
 
 html
 {
@@ -31,16 +38,49 @@ html
 body 
 {
   height: 100%;
+  display:flex;
+  flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
   Arial, sans-serif;
   padding: 0;
   margin: 0;
 }
+
+.hidden
+{
+  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.svglarge
+{
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: auto;
+}
+.svgmedium
+{
+  height: 1.65rem;
+  width: 1.65rem;
+  margin: auto;
+}
+.svgsmall
+{
+  height: 1rem;
+  width: 1rem;
+  margin: auto;
+}
+
+
 .titlebar
 {
   height: var(--titlebarHeight);
   display: flex;
+  z-index: 3;
   justify-content: space-between;
+  background-color: var(--titlebarColor);
   -webkit-app-region: drag;
 }
 
@@ -53,8 +93,11 @@ body
 
 .appicon
 {
+  margin-top: auto;
+  margin-bottom: auto;
+  height:1.2rem;
   margin-left: 0.5rem;
-  margin-right:0.4rem;
+  margin-right:0.5rem;
   width: fit-content;
 }
 
@@ -81,6 +124,16 @@ body
   -webkit-app-region: no-drag;
 }
 
+.updatebtnlogo
+{
+  width: 100%;
+  height: 100%;
+  filter: huerotate(180deg);
+  background-image:url("../Assets/Icons/updating.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .titlebarbtn:hover
 {
   background-color: var(--titlebarbtnHover);
@@ -93,7 +146,7 @@ body
 
 .btn-close:hover
 {
-  background-color:#dc143c;
+  background-color:#e33256;
 }
 
 .btn-close:active
@@ -107,15 +160,10 @@ body
   text-align: center;
 }
 
-.svgcenter
-{
-  text-align: center;
-}
-
 .container
 {
   width: 100%;
-  height: 97%;
+  flex: 1;
   display: flex;
   flex-direction: row;
 }
@@ -125,7 +173,7 @@ body
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #f9f7f3;
+  background-color: var(--sidebarColor);
   width: 5rem;
   padding-top: 1.4rem;
   z-index: 2;
@@ -159,6 +207,7 @@ body
 .userfind:active
 {
   background-color:var(--userfindActive);
+  transition: 0ms;
   border-radius: 40%;
 }
 
@@ -173,12 +222,12 @@ body
   background-color: #ebe9e5;
 }
 
-.hidden
+.chatwindow
 {
-  visibility:hidden ;
+  width: 100%;
 }
 
-.chatwindow
+.conversation
 {
   height: 100%;
   width: 100%;
@@ -186,6 +235,25 @@ body
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
+}
+
+.noconversation
+{
+  width: 90%;
+  height: 90%;
+  display: flex;
+  position: absolute;
+  margin: auto;
+}
+.noconversation div
+{
+  margin :auto;
+  text-align: center;
+}
+.noconversation div h1
+{
+  padding: 0;
+  margin: 0;
 }
 
 .conversationHeader
@@ -197,27 +265,197 @@ body
   background-color: #f9f7f3; 
 }
 
+.profilecontainer
+{
+  width: 100%;
+  height: 5rem;
+  padding-left: 4.5rem;
+  display: flex;
+}
+
+.profilecontainer:hover
+{
+  background:linear-gradient(to right,#a1a1a1, #f9f7f3);
+  cursor: pointer;
+}
+
+.profilecontainer:active
+{
+  background:linear-gradient(to right,#d6d6d6, #f9f7f3);
+  cursor: pointer;
+}
+
+
 .profilehandle
 {
-  width: 70%;
-  height: 5rem;
-  background-color: green;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  margin-top:auto;
+  margin-bottom: auto;
 }
-.conversationControls
+
+.profilepicture
 {
-  width: 30%;
-  height: 5rem;
-  background-color: red;
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background-image: url(https://via.placeholder.com/150?text=Placeholder);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
+
+.profilename
+{
+  font-size: 1.2rem;
+  user-select: none;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.profilename span p
+{
+  padding: 0;
+  margin: 0;
+  font-size: larger;
+  font-weight: 500;
+}
+
+.convoControlsContainer
+{
+  height: 5rem;
+  display: flex;
+  margin-right: 0.5rem;
+}
+
+.convoControls
+{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: end;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: fit-content;
+}
+
+.convoControlsbtn
+{
+  height: 2.5rem;
+  width: 3rem;
+  display: flex;
+  margin-right: 0.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.convoControlsbtn:hover
+{
+  background-color: #d3d3d3;
+}
+
+.convoControlsbtn:active
+{
+  background-color: #e5e5e5;
+}
+
+.callbtnscontainer
+{
+  display: flex;
+}
+
+.searchbtncontainer
+{
+  padding-left: 1rem;
+  border-left: solid 1px lightgray;
+}
+
 .conversationBody
 {
   height: 100%;
-  background-color: #ebe9e5 ;
+  background-color: var(--conversationbodyColor) ;
   box-shadow: rgb(179, 179, 179) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.composeBoxContainer
+{
+  height: var(--composeBoxHeight);
+  background-color: #f9f7f3;
+  display: flex;
+  max-height: 10rem;
+}
+
+.composeBoxWrapper
+{
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+  display: flex;
+  height: fit-content;
+}
+
+.composeBoxControlls
+{
+  display: flex;
+  margin-right: 0.5rem;
+  justify-content: space-between;
+}
+
+.composeBoxControlsbtn
+{
+  height: 2.5rem;
+  width: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 0.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.composeBoxControlsbtn:hover
+{
+  background-color: #d3d3d3;
+}
+
+.composeBoxControlsbtn:active
+{
+  background-color: #e5e5e5;
 }
 
 .composeBox
 {
-  height: var(--composeBoxHeight);
-  background-color: #f9f7f3;
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  width: fit-content;
+  align-items: center;
+}
+
+.textArea
+{
+  display: flex;
+  height: 2.2rem;
+  max-height: 10rem;
+  min-width: 25rem;
+  margin-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.textfield
+{
+  margin: auto;
+  width: 100%;
+  line-height: 1rem;
+  user-select: text;
+  white-space: pre-wrap;
+  word-break: break-word;
 }

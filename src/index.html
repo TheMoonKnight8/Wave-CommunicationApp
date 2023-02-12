@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Wave</title>
     <link rel="stylesheet" href="index.css" />
-    <script defer src="windowcontrol.js"></script>
+    <script defer src="index.js"></script>
   </head>
   <body class="lightTheme">
     <div class="titlebar">
@@ -13,6 +13,19 @@
         <span class="title">Wave</span>
       </div>
       <div class="windowcontrolls">
+        <button id="updateBtn" class="titlebarbtn" type="button" title="Update Available">
+          <svg viewBox="0 0 340.59 428.41">
+            <defs>
+              <style>
+                .j-1{fill:none;stroke:#0aff2f;stroke-linecap:round;stroke-miterlimit:10;stroke-width:20px;}
+              </style>
+            </defs>
+            <path class="j-1" d="M222.5,62.21A160.28,160.28,0,0,0,62.21,222.5" transform="translate(-52.21 -8.3)"/>
+            <path class="j-1" d="M247.12,18.3,314,90.52a5,5,0,0,1-3.15,8.37L212.92,109" transform="translate(-52.21 -8.3)"/>
+            <path class="j-1" d="M222.5,382.79A160.28,160.28,0,0,0,382.79,222.5" transform="translate(-52.21 -8.3)"/>
+            <path class="j-1" d="M197.88,426.7,131,354.47a5,5,0,0,1,3.15-8.37L232.08,336" transform="translate(-52.21 -8.3)"/>
+          </svg>
+        </button>
         <button id="minimizeBtn" class="titlebarbtn btn-minimize" title="Minimize" type="button">
           <svg viewBox="0 0 395 200">
             <style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:25px;}</style>
@@ -66,16 +79,23 @@
         </div>
         <div class="sidebarBottom">
           <div class="setting sidebaritems navbarbtn">
-            <svg viewBox="0 0 363.09 363.09">
-              <rect x="184.35" y="310.96" width="76.29" height="93.09" rx="22.29" transform="translate(404.04 674.04) rotate(180)"/>
-              <rect x="88.89" y="271.41" width="76.29" height="93.09" rx="22.29" transform="translate(-48.91 591.66) rotate(-135)"/>
-              <rect x="49.35" y="175.96" width="76.29" height="93.09" rx="22.29" transform="translate(-175.96 269.04) rotate(-90)"/>
-              <rect x="88.89" y="80.5" width="76.29" height="93.09" rx="22.29" transform="translate(-93.58 86.08) rotate(-45)"/>
-              <rect x="143.4" width="76.29" height="93.09" rx="22.29"/>
-              <rect x="279.81" y="80.5" width="76.29" height="93.09" rx="22.29" transform="translate(142 -228.58) rotate(45)"/>
-              <rect x="319.35" y="175.96" width="76.29" height="93.09" rx="22.29" transform="translate(539.04 -175.96) rotate(90)"/>
-              <rect x="279.81" y="271.42" width="76.29" height="93.09" rx="22.29" transform="translate(726.66 277) rotate(135)"/>
-              <path d="M222.5,89.21A133.29,133.29,0,1,0,355.79,222.5,133.28,133.28,0,0,0,222.5,89.21Zm0,208.35a75.06,75.06,0,1,1,75.06-75.06A75.07,75.07,0,0,1,222.5,297.56Z" transform="translate(-40.96 -40.96)"/>
+            <svg viewBox="0 0 383.09 383.09">
+              <defs>
+                <style>.cls-1{fill:#fff;stroke:#000;stroke-miterlimit:10;stroke-width:20px;}
+
+                </style>
+              </defs>
+              <path class="cls-1" d="M381.75,184.35H350.24a131.65,131.65,0,0,0-10.44-25.2l22.28-22.28a22.29,
+              22.29,0,0,0,0-31.53L339.66,82.92a22.29,22.29,0,0,0-31.53,0L285.85,105.2a131.92,131.92,0,0,
+              0-25.2-10.44V63.25A22.29,22.29,0,0,0,238.35,41h-31.7a22.29,22.29,0,0,0-22.3,22.29V94.76a131.92,
+              131.92,0,0,0-25.2,10.44L136.87,82.92a22.29,22.29,0,0,0-31.53,0L82.92,105.34a22.29,22.29,0,0,0,0,
+              31.53l22.28,22.28a131.92,131.92,0,0,0-10.44,25.2H63.25A22.29,22.29,0,0,0,41,206.65v31.7a22.29,22.29,
+              0,0,0,22.29,22.3H94.76a131.92,131.92,0,0,0,10.44,25.2L82.92,308.13a22.29,22.29,0,0,0,0,31.53l22.42,
+              22.42a22.29,22.29,0,0,0,31.53,0l22.28-22.28a131.65,131.65,0,0,0,25.2,10.44v31.51A22.29,22.29,0,0,0,
+              206.65,404h31.7a22.29,22.29,0,0,0,22.3-22.29V350.24a131.92,131.92,0,0,0,25.2-10.44l22.28,22.28a22.29,
+              22.29,0,0,0,31.53,0l22.42-22.42a22.29,22.29,0,0,0,0-31.53L339.8,285.85a131.92,131.92,0,0,0,10.44-25.2h31.51A22.29,
+              22.29,0,0,0,404,238.35v-31.7A22.29,22.29,0,0,0,381.75,184.35ZM222.5,297.56a75.06,75.06,0,1,1,75.06-75.06A75.07,
+              75.07,0,0,1,222.5,297.56Z" transform="translate(-30.96 -30.96)"/>
             </svg>
           </div>
           <div class="userProfile sidebaritems navbarbtn">
@@ -90,15 +110,105 @@
         </div>
       </div>
       <div class="chatwindow">
-        <div class="conversationHeader">
-          <div class="profilehandle">
-            <div class="profilepicture"></div>
-            <div class="profilename"></div>
+        <div class="noconversation hidden">
+          <div>
+            <h1>Wave Your Friends</h1>
+            <p> Hit The Plus Icon On The Sidebar </br>
+               Search For Your Friends And Family Or Coleagues</br>
+               Start Messaging
+              </p>
           </div>
-          <div class="conversationControls"></div>
+
         </div>
-        <div class="conversationBody"></div>
-        <div class="composeBox"></div>
+        <div class="conversation ">
+          <div class="conversationHeader">
+            <div class="profilecontainer">
+              <div class="profilehandle">
+                <div class="profilepicture"></div>
+                <div class="profilename">
+                  <span><p>John Doe</p></span>
+                </div>
+              </div>
+            </div>
+            <div class="convoControlsContainer">
+              <div class="convoControls">
+                <div class="callbtnscontainer">
+                  <div class="voicecallbtn convoControlsbtn ">
+                    <svg viewBox="0 0 401.11 401.1" class="svgsmall">
+                      <defs>
+                        <style>
+                          .cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:20px;}
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="M347.62,408.6c-23.62-.75-44.16-9.65-73.76-25.79C180.56,
+                      331.66,106,257.35,58.33,167.94c-17.44-33.81-32.15-66.5-20.91-94.85,9-18.63,
+                      29.23-33.94,60.16-45.51a5.12,5.12,0,0,1,1-.09c10,0,26.08,21.65,33,30.89,1.09,
+                      1.47,2.13,2.87,3.1,4.15,14.07,20.71,27.23,41.13,33.89,63,2.29,8.54-5.86,19-13,
+                      28.24l-1.38,1.78c-4.09,5.2-12.51,16-5.57,31.37,9.17,21.75,22.69,41.17,43.82,
+                      62.94.11.12.23.23.35.34,18.42,17.71,45.75,39.94,71.37,45.23a14.35,14.35,0,0,0,
+                      2.85.29c.51,0,1,0,1.55-.08,9.24-1,15.58-6.14,20.69-10.25,1.51-1.22,2.95-2.38,
+                      4.28-3.27.35-.24.69-.49,1-.76,9.86-8,15.19-9.07,18.74-9.07,5.19,0,11.66,2.4,
+                      22.34,8.26s30.5,16.56,47.77,28.85c23,16.35,29.52,26.85,31.33,32,0,.86-.12,
+                      4.42-3.77,12.38a197.4,197.4,0,0,1-10.69,19.27c-.58,1-1.13,1.86-1.63,2.7-14,
+                      21.79-31.08,32.84-50.83,32.84Z" transform="translate(-23.49 -17.49)"/>
+                    </svg>
+                  </div>
+                  <div class="videocallbtn convoControlsbtn">
+                    <svg viewBox="0 0 409.15 294.59" class="svgsmall">
+                      <path class="cls-1" d="M408.89,134.32a22.63,22.63,0,0,0-22.2-1.22l-58.76,
+                      29.42V130.74a45.52,45.52,0,0,0-45.54-45.53H75.46a45.51,45.51,0,0,0-45.53,
+                      45.53V314.26a45.51,45.51,0,0,0,45.53,45.53H281.71a45.51,45.51,0,0,0,
+                      45.53-45.53V282.48L386,311.9a19.37,19.37,0,0,0,10.19,2.43,22.13,22.13,
+                      0,0,0,12-3.57A23.11,23.11,0,0,0,419,291V153.55C419.69,145.72,415.5,
+                      138.57,408.89,134.32Z" transform="translate(-19.93 -75.21)"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="searchbtncontainer">
+                  <div class="searchbtn convoControlsbtn">
+                    <svg viewBox="0 0 391.41 391.41" class="svgsmall">
+                      <path class="cls-1" d="M402.76,376.5l-100.05-100a148.56,148.56,0,1,0-26.25,
+                      26.25l100,100.05a18.57,18.57,0,0,0,26.26-26.26ZM264.14,264.14a111.39,111.39,
+                      0,1,1,32.64-78.78A111.1,111.1,0,0,1,264.14,264.14Z" transform="translate(-26.8 -26.8)"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="conversationBody">
+
+        </div>
+        <div class="composeBoxContainer">
+          <div class="composeBoxWrapper">
+            <div class="composeBoxControlls">
+              <div class="emojibtn composeBoxControlsbtn">
+                <svg viewBox="0 0 24 24" class="svgmedium">
+                  <path  d="M9.153,11.603c0.795,0,1.439-0.879,1.439-1.962S9.948,7.679,9.153,7.679 S7.714,8.558,7.714,9.641S8.358,11.603,9.153,11.603z M5.949,12.965c-0.026-0.307-0.131,5.218,6.063,5.551 c6.066-0.25,6.066-5.551,6.066-5.551C12,14.381,5.949,12.965,5.949,12.965z M17.312,14.073c0,0-0.669,1.959-5.051,1.959 c-3.505,0-5.388-1.164-5.607-1.959C6.654,14.073,12.566,15.128,17.312,14.073z M11.804,1.011c-6.195,0-10.826,5.022-10.826,11.217 s4.826,10.761,11.021,10.761S23.02,18.423,23.02,12.228C23.021,6.033,17.999,1.011,11.804,1.011z M12,21.354 c-5.273,0-9.381-3.886-9.381-9.159s3.942-9.548,9.215-9.548s9.548,4.275,9.548,9.548C21.381,17.467,17.273,21.354,12,21.354z  M15.108,11.603c0.795,0,1.439-0.879,1.439-1.962s-0.644-1.962-1.439-1.962s-1.439,0.879-1.439,1.962S14.313,11.603,15.108,11.603z"></path>
+                </svg>
+              </div>
+              <div class="filebtn composeBoxControlsbtn">
+                <svg viewBox="0 0 24 24" class="svgmedium">
+                  <path d="M1.816,15.556v0.002c0,1.502,0.584,2.912,1.646,3.972s2.472,1.647,3.974,1.647 c1.501,0,2.91-0.584,3.972-1.645l9.547-9.548c0.769-0.768,1.147-1.767,1.058-2.817c-0.079-0.968-0.548-1.927-1.319-2.698 c-1.594-1.592-4.068-1.711-5.517-0.262l-7.916,7.915c-0.881,0.881-0.792,2.25,0.214,3.261c0.959,0.958,2.423,1.053,3.263,0.215 c0,0,3.817-3.818,5.511-5.512c0.28-0.28,0.267-0.722,0.053-0.936c-0.08-0.08-0.164-0.164-0.244-0.244 c-0.191-0.191-0.567-0.349-0.957,0.04c-1.699,1.699-5.506,5.506-5.506,5.506c-0.18,0.18-0.635,0.127-0.976-0.214 c-0.098-0.097-0.576-0.613-0.213-0.973l7.915-7.917c0.818-0.817,2.267-0.699,3.23,0.262c0.5,0.501,0.802,1.1,0.849,1.685 c0.051,0.573-0.156,1.111-0.589,1.543l-9.547,9.549c-0.756,0.757-1.761,1.171-2.829,1.171c-1.07,0-2.074-0.417-2.83-1.173 c-0.755-0.755-1.172-1.759-1.172-2.828l0,0c0-1.071,0.415-2.076,1.172-2.83c0,0,5.322-5.324,7.209-7.211 c0.157-0.157,0.264-0.579,0.028-0.814c-0.137-0.137-0.21-0.21-0.342-0.342c-0.2-0.2-0.553-0.263-0.834,0.018 c-1.895,1.895-7.205,7.207-7.205,7.207C2.4,12.645,1.816,14.056,1.816,15.556z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="composeBox">
+              <div class="textArea" role="textbox" spellcheck="true" title="Type A Message" >
+                <div class="textfield" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="sendbtn composeBoxControlsbtn">
+              <svg viewBox="0 0 24 24" height="24" width="24" class="sendVoicebtn svgmedium hidden">
+                <path d="M11.999,14.942c2.001,0,3.531-1.53,3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531 S8.469,2.35,8.469,4.35v7.061C8.469,13.412,9.999,14.942,11.999,14.942z M18.237,11.412c0,3.531-2.942,6.002-6.237,6.002 s-6.237-2.471-6.237-6.002H3.761c0,4.001,3.178,7.297,7.061,7.885v3.884h2.354v-3.884c3.884-0.588,7.061-3.884,7.061-7.885 L18.237,11.412z"/>
+              </svg>
+              <svg viewBox="0 0 24 24" height="24" width="24" class="sendTextbtn ">
+                <path d="M1.101,21.757L23.8,12.028L1.101,2.3l0.011,7.912l13.623,1.816L1.112,13.845 L1.101,21.757z"/>
+              </svg>
+            </div>
+        </div>
+        </div>
+      </div>
       </div>
     </div>
   </body>
